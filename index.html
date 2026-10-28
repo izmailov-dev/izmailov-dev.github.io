@@ -32,6 +32,7 @@
 }
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 body {
   margin: 0;
   background: var(--bg);
@@ -118,6 +119,9 @@ h1 {
 .btn-main:hover { background: var(--text); border-color: var(--text); color: var(--bg); }
 .btn-alt { color: var(--green); }
 .btn-alt:hover { color: var(--text); border-color: var(--text); }
+.toc { margin-top: 1rem; color: var(--muted); font-size: 0.95rem; }
+.toc a { margin-left: 0.6rem; }
+.case-cta { margin-top: 1.5rem; }
 
 /* Секции */
 section { padding: 3.5rem 0; border-top: 1px solid var(--line); }
@@ -303,8 +307,8 @@ footer { padding: 2rem 0 3rem; color: var(--muted); font-size: 0.875rem; border-
     <p class="facts">8 лет коммерческой разработки. Самозанятый, работаю удалённо, чеки и закрывающие документы предоставляю.</p>
     <div class="actions">
       <a class="btn btn-main" href="https://t.me/izmailov_maxim" target="_blank" rel="noopener">Написать в Telegram</a>
-      <button class="btn btn-alt" type="button" onclick="document.getElementById('bronbum').scrollIntoView({behavior:'smooth'})">Смотреть кейс</button>
     </div>
+    <nav class="toc" aria-label="Кейсы">Кейсы: <a href="#bronbum">БроньБум</a> <a href="#case">Магазин 2014</a></nav>
   </div>
 </header>
 
@@ -363,6 +367,9 @@ footer { padding: 2rem 0 3rem; color: var(--muted); font-size: 0.875rem; border-
     <a class="btn btn-alt" href="https://bronbum.ru" target="_blank" rel="noopener">Открыть сайт</a>
     <a class="btn btn-alt" href="https://github.com/izmailov-dev/bronbum-showcase" target="_blank" rel="noopener">Описание и скриншоты на GitHub</a>
   </div>
+  <div class="case-cta">
+    <a class="btn btn-main" href="https://t.me/izmailov_maxim" target="_blank" rel="noopener">Обсудить задачу в Telegram</a>
+  </div>
 </section>
 
 <section id="case" aria-labelledby="case-h">
@@ -412,6 +419,9 @@ footer { padding: 2rem 0 3rem; color: var(--muted); font-size: 0.875rem; border-
   <div class="links">
     <a class="btn btn-alt" href="https://github.com/izmailov-dev/stroymarket-legacy-fix/compare/before...after" target="_blank" rel="noopener">Все исправления построчно</a>
     <a class="btn btn-alt" href="https://github.com/izmailov-dev/stroymarket-legacy-fix" target="_blank" rel="noopener">Код и инструкция для проверки</a>
+  </div>
+  <div class="case-cta">
+    <a class="btn btn-main" href="https://t.me/izmailov_maxim" target="_blank" rel="noopener">Обсудить задачу в Telegram</a>
   </div>
 </section>
 

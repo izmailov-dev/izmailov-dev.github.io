@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Максим Измайлов — PHP-разработчик: доработка и починка сайтов</title>
-<meta name="description" content="Чиню и дорабатываю PHP-сайты, доставшиеся по наследству: скорость, безопасность, перевод на PHP 8, интеграции с Wildberries, Ozon и 1С. 8 лет коммерческой разработки.">
+<meta name="description" content="PHP-разработчик: чиню и дорабатываю сайты. Кейсы: сервис онлайн-бронирования БроньБум с 1353 автотестами и легаси-магазин 2014 года, ускоренный с 8,1 до 0,001 сек.">
 <meta property="og:title" content="Максим Измайлов — PHP-разработчик">
-<meta property="og:description" content="Кейс: каталог магазина 2014 года ускорен с 8,1 до 0,001 сек, закрыты SQL-инъекции, XSS и дыры в авторизации.">
+<meta property="og:description" content="Кейсы: сервис онлайн-бронирования БроньБум и легаси-магазин, каталог которого ускорен с 8,1 до 0,001 сек.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231d1a19'/><text x='16' y='22' font-family='Arial' font-size='15' font-weight='700' fill='%2386a9c4' text-anchor='middle'>МИ</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -153,6 +153,26 @@ h3 { font-size: 1.125rem; font-weight: 600; margin: 0 0 0.4rem; }
 .headline-result .now { font-size: clamp(2.5rem, 7vw, 4.5rem); color: var(--copper); }
 .headline-caption { color: var(--muted); margin: 0 0 2.5rem; }
 
+/* Кейс: скриншоты */
+.shots { margin: 0 0 2.5rem; }
+.shot {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+/* ширины колонок пропорциональны сторонам картинок, чтобы высоты совпали */
+.shots-pair {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 0.3fr);
+  gap: 1rem;
+  align-items: start;
+  margin-top: 1rem;
+}
+.done { max-width: 42rem; margin: 0 0 2.5rem; }
+
 .case-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -253,7 +273,8 @@ footer { padding: 2rem 0 3rem; color: var(--muted); font-size: 0.875rem; border-
 @media (max-width: 52rem) {
   .hero { padding-top: 2.5rem; }
   .hero-deco { display: none; }
-  .case-grid, .services { grid-template-columns: 1fr; }
+  .case-grid, .services, .shots-pair { grid-template-columns: 1fr; }
+  .shot-phone { max-width: 16rem; margin: 0 auto; }
   .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 30rem) {
@@ -282,7 +303,7 @@ footer { padding: 2rem 0 3rem; color: var(--muted); font-size: 0.875rem; border-
     <p class="facts">8 лет коммерческой разработки. Самозанятый, работаю удалённо, чеки и закрывающие документы предоставляю.</p>
     <div class="actions">
       <a class="btn btn-main" href="https://t.me/izmailov_maxim" target="_blank" rel="noopener">Написать в Telegram</a>
-      <button class="btn btn-alt" type="button" onclick="document.getElementById('case').scrollIntoView({behavior:'smooth'})">Смотреть кейс</button>
+      <button class="btn btn-alt" type="button" onclick="document.getElementById('bronbum').scrollIntoView({behavior:'smooth'})">Смотреть кейс</button>
     </div>
   </div>
 </header>
@@ -305,6 +326,43 @@ footer { padding: 2rem 0 3rem; color: var(--muted); font-size: 0.875rem; border-
     </div>
   </div>
   <p class="price"><strong>Доработка на PHP — 2 500 ₽/час, Битрикс — 3 000 ₽/час.</strong> Крупные задачи — фиксированной суммой после оценки.</p>
+</section>
+
+<section id="bronbum" aria-labelledby="bronbum-h">
+  <h2 id="bronbum-h">Кейс: БроньБум — сервис онлайн-бронирования</h2>
+  <p class="intro">Сервис для тех, кто сдаёт что-то по времени — бани, дома, залы, корты, запись к мастерам: клиент сам выбирает время и вносит предоплату.</p>
+
+  <p class="headline-result" aria-label="1353 автотеста">
+    <span class="now">1353 автотеста</span>
+  </p>
+  <p class="headline-caption">Спроектировал, проверил и запустил сам</p>
+
+  <div class="shots">
+    <img class="shot" src="img/01-landing-dark.png" alt="Главная страница БроньБум, тёмная тема" width="2880" height="1800" loading="lazy">
+    <div class="shots-pair">
+      <img class="shot" src="img/04-demo-board.png" alt="Шахматка в кабинете владельца: брони по часам, перерывы после них, линия текущего времени" width="2880" height="1800" loading="lazy">
+      <img class="shot shot-phone" src="img/07-client-mobile-dark.png" alt="Страница бронирования с телефона: выбор даты, длительности и времени, итог и предоплата" width="1170" height="3906" loading="lazy">
+    </div>
+  </div>
+
+  <div class="done">
+    <h3>Что сделано</h3>
+    <ul class="fixes">
+      <li><b>Защита от двойных броней:</b> время перепроверяется в транзакции с блокировкой, из двух одновременных броней пройдёт одна</li>
+      <li><b>Предоплата со сроком</b> на реквизиты владельца: не оплатили вовремя — бронь отменяется автоматически</li>
+      <li><b>Время в UTC</b> в базе, на экране — в часовом поясе владельца</li>
+      <li><b>Демо-кабинеты</b> в один клик без регистрации, через сутки удаляются со всеми данными</li>
+      <li><b>«Поделиться»:</b> превью ссылки для ВК и Телеграма и QR-код генерируются на сервере</li>
+      <li><b>Свой сервер:</b> почта с SPF, DKIM и DMARC, деплой одной командой</li>
+    </ul>
+  </div>
+
+  <p class="diff-note">Код закрыт — покажу на созвоне.</p>
+
+  <div class="links">
+    <a class="btn btn-alt" href="https://bronbum.ru" target="_blank" rel="noopener">Открыть сайт</a>
+    <a class="btn btn-alt" href="https://github.com/izmailov-dev/bronbum-showcase" target="_blank" rel="noopener">Описание и скриншоты на GitHub</a>
+  </div>
 </section>
 
 <section id="case" aria-labelledby="case-h">
